@@ -9,19 +9,20 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Check AWS CLI') {
             steps {
-                bat 'docker build -t simplycard:%BUILD_NUMBER% .'
+                withCredentials([usernamePassword(
+                    credentialsId: 'aws-simplycard',
+                    usernameVariable: 'AWS_ACCESS_KEY_ID',
+                    passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                )]) {
+                    bat '''
+                        set AWS_DEFAULT_REGION=ap-southeast-2
+                        aws --version
+                        aws sts get-caller-identity
+                    '''
+                }
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'SimplyCard Docker image built successfully!'
-        }
-        failure {
-            echo 'Pipeline failed. Check the Jenkins console output.'
         }
     }
 }

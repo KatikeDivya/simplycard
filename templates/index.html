@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+SmartCard - Digital Business Card
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            YOUR DIGITAL IDENTITY
+        </p>
+
+
+        <h1>
+
+            Your Professional Identity.
+            <span>One Smart Card.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Create, customize and share your
+            professional digital business card
+            with anyone, anywhere.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="{{ url_for('register') }}"
+                class="button"
+            >
+
+                Create Your Card
+
+            </a>
+
+
+            <a
+                href="{{ url_for('login') }}"
+                class="button secondary"
+            >
+
+                Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            📱
+        </div>
+
+        <h3>
+            Digital Card
+        </h3>
+
+        <p>
+            Create your professional
+            digital identity.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🔗
+        </div>
+
+        <h3>
+            Share Anywhere
+        </h3>
+
+        <p>
+            Share your card with
+            one simple link.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            📲
+        </div>
+
+        <h3>
+            QR Code
+        </h3>
+
+        <p>
+            Let people scan your QR
+            code to view your card.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

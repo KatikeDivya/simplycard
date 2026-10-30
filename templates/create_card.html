@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{{ "Edit Card" if card else "Create Card" }} - SmartCard
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="form-container large">
+
+
+    <h2>
+
+        {{ "Edit Your Card" if card else "Create Your Digital Card" }}
+
+    </h2>
+
+
+    <p class="form-subtitle">
+
+        Add your professional information.
+
+    </p>
+
+
+    <form method="POST">
+
+
+        <label>
+            Unique Username
+        </label>
+
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Example: divya"
+            value="{{ card.username if card else '' }}"
+            required
+        >
+
+
+        <small>
+            Your public card will be:
+            /card/username
+        </small>
+
+
+        <label>
+            Full Name
+        </label>
+
+
+        <input
+            type="text"
+            name="full_name"
+            placeholder="Your full name"
+            value="{{ card.full_name if card else '' }}"
+            required
+        >
+
+
+        <label>
+            Job Title
+        </label>
+
+
+        <input
+            type="text"
+            name="job_title"
+            placeholder="Example: Software Developer"
+            value="{{ card.job_title if card else '' }}"
+        >
+
+
+        <label>
+            Company
+        </label>
+
+
+        <input
+            type="text"
+            name="company"
+            placeholder="Company name"
+            value="{{ card.company if card else '' }}"
+        >
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            value="{{ card.email if card else '' }}"
+        >
+
+
+        <label>
+            Phone
+        </label>
+
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone number"
+            value="{{ card.phone if card else '' }}"
+        >
+
+
+        <label>
+            Location
+        </label>
+
+
+        <input
+            type="text"
+            name="location"
+            placeholder="Hyderabad, India"
+            value="{{ card.location if card else '' }}"
+        >
+
+
+        <label>
+            Website
+        </label>
+
+
+        <input
+            type="url"
+            name="website"
+            placeholder="https://example.com"
+            value="{{ card.website if card else '' }}"
+        >
+
+
+        <label>
+            LinkedIn
+        </label>
+
+
+        <input
+            type="url"
+            name="linkedin"
+            placeholder="LinkedIn URL"
+            value="{{ card.linkedin if card else '' }}"
+        >
+
+
+        <label>
+            GitHub
+        </label>
+
+
+        <input
+            type="url"
+            name="github"
+            placeholder="GitHub URL"
+            value="{{ card.github if card else '' }}"
+        >
+
+
+        <label>
+            Instagram
+        </label>
+
+
+        <input
+            type="url"
+            name="instagram"
+            placeholder="Instagram URL"
+            value="{{ card.instagram if card else '' }}"
+        >
+        
+
+        <label>
+            About You
+        </label>
+
+
+        <textarea
+            name="about"
+            placeholder="Write something about yourself..."
+        >{{ card.about if card else '' }}</textarea>
+
+
+        <button
+            type="submit"
+            class="button full-width"
+        >
+
+            {{ "Update Card" if card else "Create Card" }}
+
+        </button>
+
+
+    </form>
+
+
+</div>
+
+
+{% endblock %}

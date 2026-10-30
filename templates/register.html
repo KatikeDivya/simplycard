@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Create Account - SmartCard
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="form-container">
+
+    <h2>
+        Create Your Account
+    </h2>
+
+
+    <p class="form-subtitle">
+
+        Start creating your digital business card.
+
+    </p>
+
+
+    <form
+        method="POST"
+        action="{{ url_for('register') }}"
+    >
+
+
+        <label>
+            Full Name
+        </label>
+
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+
+        <div class="password-box">
+
+            <input
+                type="password"
+                id="register-password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+
+            <button
+                type="button"
+                class="toggle-password"
+                data-target="register-password"
+            >
+                Show
+            </button>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="button full-width"
+        >
+
+            Create Account
+
+        </button>
+
+
+    </form>
+
+
+    <p class="form-footer">
+
+        Already have an account?
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    </p>
+
+
+</div>
+
+
+{% endblock %}

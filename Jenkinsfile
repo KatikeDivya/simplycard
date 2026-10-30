@@ -41,5 +41,25 @@ pipeline {
                 }
             }
         }
+
+        
+        stage('Deploy to ECS') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'aws-simplycard',
+                    usernameVariable: 'AWS_ACCESS_KEY_ID',
+                    passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                )]) {
+                    bat '''
+                        set "AWS_DEFAULT_REGION=ap-southeast-2"
+
+                        aws ecs update-service --cluster simplycard-prod-ecs-cluster --service simplycard-prod-service --force-new-deployment --region ap-southeast-2
+
+                        aws ecs wait services-stable --cluster simplycard-prod-ecs-cluster --services simplycard-prod-service --region ap-southeast-2
+                    '''
+                }
+            }
+        }
+
     }
 }
